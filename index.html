@@ -5,10 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MarkApp</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style.css">    
     <!-- Fontawesome, Bootstrap & demases -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
 <body>
@@ -20,14 +21,10 @@
             <!-- The navbar itself -->
             <ul class="navbar-list">
                 <li id="navbar-li´s"><a href="#home" id="navbar-li-a´s">Home</a></li>
-                <li id="navbar-li´s"><a href="#about" id="navbar-li-a´s">Link#2</a></li>
-                <li id="navbar-li´s"><a href="#services" id="navbar-li-a´s">Home#2</a></li>
-                <li id="navbar-li´s"><a href="#contact" id="navbar-li-a´s">Bla</a></li>
             </ul>
         </nav>
     </header>
     <!-- Baby look at this body, i-i-i-i work out! -->
-
     <main id="colapser">
         <!-- Search field de markers -->
         <div class="container">
@@ -43,15 +40,74 @@
             <p>Marcadores:</p>
         </div>
         <!-- Card container -->
-        <button class="addCard">+</button>
+        <button class="addCard" data-bs-toggle="modal" data-bs-target="#newCardModal">+</button>
+        <!-- Modal wrappers -->
+        <div class="modal fade" id="newCardModal" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="newCardModalTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <!-- Header del modal -->
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="newCardModalTitle">Guardar nuevo enlace</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <!-- Fields de modal -->
+                    <div class="modal-body">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="titulo" id="titulo"
+                                aria-label="Username" aria-describedby="basic-addon1">
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="link" id="link" aria-label="Username"
+                                aria-describedby="basic-addon1" required>
+                        </div>
+                        <div class="input-group mb-3">
+                            <textarea class="form-control" id="descripcion" placeholder="ingresa la descripcion"
+                                aria-label="With textarea"></textarea>
+                        </div>
+                    </div>
+                    <!-- Botones de modal -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn" id="saveButton">Guardar</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal para ingresar la ruta -->
+<div class="modal fade" id="pathModal" tabindex="-1" aria-labelledby="pathModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="pathModalLabel">Guardar en...</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <input type="text" class="form-control" id="storagePathInput" placeholder="Ingrese URL o carpeta destino">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" id="savePathBtn">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+        </div>
+
+        <!-- Renderizado de cards -->
+        <div id="cardContainer" class="container mt-5">
+        </div>
     </main>
     <!-- Bigfoot-er -->
     <div id="colapser">
         <footer>
-            <a href="https://cafecito.app" target="_blank" class="cafecitoLink">[Ingrese link de Cafecito aquí] + "Donate una coin si te gusta la tool,
-                capadocio!"</a>
+            <a href="https://cafecito.app" target="_blank" class="cafecitoLink">[Ingrese link de Cafecito aquí] +
+                "Donate una coin si te gusta la tool, capadocio!"</a>
         </footer>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>

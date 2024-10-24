@@ -4,9 +4,6 @@
     font-family: 'lib1', 'lib2', sans-serif;
 }
 
-/* Paleta madre => https://coolors.co/f7dba7-f4c0a4-c67c58-1e2d2f-041f1e */
-/* Id "Colapser" creado únicamente para poder colapsar el código en el CSS y que no me rompa las guindas para buscar un elemento */
-
 /* Font insert */
 @font-face {
     font-family: 'lib1';
