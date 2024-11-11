@@ -25,23 +25,35 @@ document.getElementById("saveButton").addEventListener("click", () => {
     // Renderizar card
     renderCard(cardData);
 });
+// Agrego un "Enter" al "Guardar" porque si no es una paja
+document.getElementById("newCardModal").addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        event.preventDefault()
+        document.getElementById("saveButton").click();
+    }
+});
 
 
 // Renderizado de cards
-function renderCard({ titulo, link, descripcion, thumbnail }) {
+async function renderCard({ titulo, link, descripcion }) {    
+    const fullLink = link.startsWith('http') ? link : `https://${link}`;
+    const thumbnail = 'https://via.placeholder.com/150';
     const cardContainer = document.getElementById("cardContainer");
-
     const card = document.createElement("a");
-    card.href = link;
+    card.href = fullLink;
     card.target = "_blank";
-    card.className = "card mb-3 addCard";
+    card.className = "card mb-3";
+    card.id = "addCard";
+    const titleWithUrl = `${titulo} (${fullLink})`;
+
     card.innerHTML = `
-        <img src="${thumbnail || 'https://via.placeholder.com/150'}" alt="Thumbnail" class="card-img-top">
+        <!-- <img src="${thumbnail}" alt="Thumbnail" class="card-img-top"> -->
         <div class="card-body">
-            <h5 class="card-title">${titulo}</h5>
+            <h5 class="card-title">${titleWithUrl}</h5>
             <p class="card-text">${descripcion}</p>
         </div>
     `;
+    // Se deja el thumbnail en semi "display: none" porque es un quilombo generarlos, requiere web scrapping y no tengo ganas de lidiar con esto ahora 😅
     cardContainer.appendChild(card);
 }
 
@@ -110,3 +122,30 @@ function importFromCSV(event) {
     };
     reader.readAsText(file);
 }
+
+// Modo oscuro y variables
+const darkModeButton = document.getElementById('darkModeButton');
+const body = document.body;
+if (localStorage.getItem('darkMode') === 'enabled') {
+    body.classList.add('dark-mode');
+}
+darkModeButton.onclick = function() {    
+    if (body.classList.contains('dark-mode')) {
+        body.classList.remove('dark-mode');
+        localStorage.setItem('darkMode', 'disabled');
+    } else {
+        body.classList.add('dark-mode');
+        localStorage.setItem('darkMode', 'enabled');
+    }
+};
+darkModeButton.onclick = function() {
+    if (body.classList.contains('dark-mode')) {
+        body.classList.remove('dark-mode');
+        localStorage.setItem('darkMode', 'disabled');
+        darkModeButton.innerHTML = '<i class="fa-solid fa-moon"></i> Dark Mode'; 
+    } else {
+        body.classList.add('dark-mode');
+        localStorage.setItem('darkMode', 'enabled');
+        darkModeButton.innerHTML = '<i class="fa-solid fa-sun"></i> Light Mode';
+    }
+};

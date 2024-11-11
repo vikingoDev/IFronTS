@@ -20,26 +20,30 @@
             <a href=""><img src="./resources/img/LeonardoAI-RandomLogo.jpg" class="randomLogo" alt="random logo"></a>
             <!-- The navbar itself -->
             <ul class="navbar-list">
-
+                <!-- Export -->
                 <button class="btn btn-primary" onclick="exportToCSV()">
                     <i class="fa-solid fa-cloud-arrow-down"></i> Exportar
                 </button>
-
+                <!-- Import -->
                 <button class="btn btn-primary" onclick="document.getElementById('importFile').click();">
                     <i class="fa-solid fa-cloud-arrow-up"></i> Importar
                 </button>
                 <input type="file" id="importFile" accept=".csv" onchange="importFromCSV(event)" style="display: none;">
-
+                <!-- Cleanup -->
                 <button onclick="clearLocalStorage()" class="btn btn-danger">
                     <i class="fa-solid fa-trash-can"></i>
                 </button>
+                <!-- Dark mode -->
+                <button id="darkModeButton" class="btn btn-secondary">
+                    <i class="fa-solid fa-moon"></i> Dark Mode
+                </button>                
             </ul>
         </nav>
     </header>
     <!-- Main -->
     <main>
         <!-- Search field de markers -->
-        <div class="container">
+        <div class="searchContainer">
             <form action="/buscar" method="GET" class="form">
                 <div class="input-container">
                     <input type="text" id="search" name="query" placeholder="Search your marker here">
@@ -53,9 +57,9 @@
         </div>
 
         <!-- Renderizado de cards -->
-        <div id="cardContainer" class="container mt-5">
+        <div id="cardContainer">
             <!-- Card adder -->
-            <button class="addCard" data-bs-toggle="modal" data-bs-target="#newCardModal">+</button>
+            <button id="addCard" data-bs-toggle="modal" data-bs-target="#newCardModal">+</button>
         </div>
         <!-- Modal wrappers -->
         <div class="modal fade" id="newCardModal" data-bs-keyboard="false" tabindex="-1"
@@ -112,8 +116,7 @@
     </main>
     <!-- Footer -->
     <footer>
-        <a href="https://cafecito.app" target="_blank" class="cafecitoLink">[Ingrese link de Cafecito aquí] +
-            "Donate una coin si te gusta la tool, capadocio!"</a>
+        <a href="https://cafecito.app" target="_blank" class="cafecitoLink">[Ingrese link de Cafecito aquí]</a>
     </footer>
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

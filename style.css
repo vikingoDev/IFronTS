@@ -18,12 +18,30 @@
     --searchbarHeight: 60px;
 }
 
-/* Random background cover just to TP's sake */
+/* Estilo normal - Light mode */
 body {
-    background-image: url(./resources/img/backgroundrandom.jfif);
+    /* background-image: url(./resources/img/backgroundrandom.jfif); */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-color: #ffffff;
+    color: #000000;    
+}
+
+main {
+    padding-bottom: 0.9em;
+}
+
+/* Dark mode */
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+/* Botones - Dark mode */
+button.dark-mode {
+    background-color: #444444;
+    color: #ffffff;
 }
 
 /* Header shit */
@@ -62,66 +80,66 @@ body {
 
 
 /* Main shit */
-.container {
+.searchContainer {
     display: flex;
     justify-content: center;
+    background-color: inherit;    
+}
+
+.form {
+    padding: 20px;
     background-color: inherit;
+}
 
-    .form {
-        padding: 20px;
-        background-color: inherit;
+.input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
 
-        .input-container {
-            position: relative;
-            display: flex;
-            align-items: center;
-            width: 100%;
-        }
+.input-container input {
+    margin-top: 10%;
+    width: 70vw;
+    height: var(--searchbarHeight);
+    padding: 0 50px 0 25px;
+    background-color: #f7dba7;
+    border: none;
+    border-radius: 30px;
+    box-sizing: border-box;
+    text-align: left;
+    font-size: 25px;
+}
 
-        .input-container input {
-            margin-top: 10%;
-            width: 70vw;
-            height: var(--searchbarHeight);
-            padding: 0 50px 0 25px;
-            background-color: #f7dba7;
-            border: none;
-            border-radius: 30px;
-            box-sizing: border-box;
-            text-align: left;
-            font-size: 25px;
-        }
+.input-container input::placeholder {
+    font-style: italic;
+    font-size: 1.8rem;
+    line-height: 50px;
+}
 
-        .input-container input::placeholder {
-            font-style: italic;
-            font-size: 1.8rem;
-            line-height: 50px;
-        }
+.search-button {
+    margin-top: 10%;
+    font-size: 1.7rem;
+    height: var(--searchbarHeight);
+    width: var(--searchbarHeight);
+    position: absolute;
+    right: 0px;
+    background-color: #c89666;
+    border: none;
+    padding: 10px;
+    border-radius: 0px 30px 30px 0px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
 
-        .search-button {
-            margin-top: 10%;
-            font-size: 1.7rem;
-            height: var(--searchbarHeight);
-            width: var(--searchbarHeight);
-            position: absolute;
-            right: 0px;
-            background-color: #c89666;
-            border: none;
-            padding: 10px;
-            border-radius: 0px 30px 30px 0px;
-            color: white;
-            cursor: pointer;
-            font-weight: bold;
-        }
+.search-button:hover {
+    background-color: #a67850;
+}
 
-        .search-button:hover {
-            background-color: #a67850;
-        }
-
-        .input-container input:focus {
-            outline: none;
-            border: 2px solid #c89666;
-        }
-    }
+.input-container input:focus {
+    outline: none;
+    border: 2px solid #c89666;
 }
 
 .tagContainer {
@@ -131,15 +149,42 @@ body {
     width: 95vw;
 }
 
-.addCard {
-    width: 25rem;
-    height: 10rem;
+/* Estilos de cards renderizadas */
+#addCard {
+    width: 15em;
+    min-height: 4em;
+    height: 100%;
     color: #c67c58;
-    font-size: 5rem;
+    font-size: 1.75em;
     border-radius: 45px;
     border-color: #c67c58;
-    border-width: 0.3rem;
-    margin: 5rem 0 0 15rem;
+    border-width: 0.1em;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#cardContainer {
+    display: flex;
+    justify-content: center;
+    background-color: inherit;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1em;    
+    max-width: 95%;    
+    margin: 0 auto;
+    overflow: hidden;
+    min-height: calc(100vh - 4%);
+}
+
+.card {
+    padding: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.05);
 }
 
 .toast-message {
@@ -163,37 +208,18 @@ body {
 
 /* Footer shit */
 footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 4%;
+    position: sticky;
+    bottom: 0;    
+    width: 100%;    
     background-color: #1e2d2f;
     text-align: center;
-    padding: 10px;
+    padding: 0.5em;
 }
 
 .cafecitoLink {
     background-color: inherit;
     color: #f1ab86;
     font-size: 1.8rem;
-}
-
-#cardContainer {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 16px;
-}
-
-.card {
-    padding: 16px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    transition: transform 0.2s;
-}
-
-.card:hover {
-    transform: scale(1.05);
 }
 
 /* Media query para 2 columnas */
