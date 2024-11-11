@@ -23,147 +23,196 @@ body {
     background-image: url(./resources/img/backgroundrandom.jfif);
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;  
+    background-repeat: no-repeat;
 }
 
 /* Header shit */
-#colapser {
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
 
-    .navbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px;
-    }
+.randomLogo {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    margin: 10px 0px 0px 30px;
+    object-fit: cover;
+}
 
-    .randomLogo {
-        height: 100px;
-        width: 100px;
-        border-radius: 50%;
-        margin: 10px 0px 0px 30px;
-        object-fit: cover;
-    }
+.navbar-list {
+    display: flex;
+    justify-content: space-evenly;
+    list-style-type: none;
+    width: 50%;
+    flex-grow: 0;
+    flex-shrink: 1;
+}
 
-    .navbar-list {
-        display: flex;
-        justify-content: space-evenly;
-        list-style-type: none;
-        width: 50%;
-        flex-grow: 0;
-        flex-shrink: 1;
-    }
+#navbar-li´s {
+    justify-content: space-evenly;
+}
 
-    #navbar-li´s {
-        justify-content: space-evenly;
-    }
+#navbar-li-a´s {
+    text-decoration: none;
+    font-size: 2.2rem;
+}
 
-    #navbar-li-a´s {
-        text-decoration: none;
-        font-size: 2.2rem;
+
+/* Main shit */
+.container {
+    display: flex;
+    justify-content: center;
+    background-color: inherit;
+
+    .form {
+        padding: 20px;
+        background-color: inherit;
+
+        .input-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+        .input-container input {
+            margin-top: 10%;
+            width: 70vw;
+            height: var(--searchbarHeight);
+            padding: 0 50px 0 25px;
+            background-color: #f7dba7;
+            border: none;
+            border-radius: 30px;
+            box-sizing: border-box;
+            text-align: left;
+            font-size: 25px;
+        }
+
+        .input-container input::placeholder {
+            font-style: italic;
+            font-size: 1.8rem;
+            line-height: 50px;
+        }
+
+        .search-button {
+            margin-top: 10%;
+            font-size: 1.7rem;
+            height: var(--searchbarHeight);
+            width: var(--searchbarHeight);
+            position: absolute;
+            right: 0px;
+            background-color: #c89666;
+            border: none;
+            padding: 10px;
+            border-radius: 0px 30px 30px 0px;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .search-button:hover {
+            background-color: #a67850;
+        }
+
+        .input-container input:focus {
+            outline: none;
+            border: 2px solid #c89666;
+        }
     }
 }
 
-/* Main shit */
-#colapser {
-    
-    .container {
-        display: flex;
-        justify-content: center;
-        background-color: inherit;
+.tagContainer {
+    font-size: 1.8rem;
+    margin: 0 0 0 45px;
+    padding: 25px 0 0 0;
+    width: 95vw;
+}
 
-        .form {
-            padding: 20px;
-            background-color: inherit;
+.addCard {
+    width: 25rem;
+    height: 10rem;
+    color: #c67c58;
+    font-size: 5rem;
+    border-radius: 45px;
+    border-color: #c67c58;
+    border-width: 0.3rem;
+    margin: 5rem 0 0 15rem;
+}
 
-            .input-container {
-                position: relative;
-                display: flex;
-                align-items: center;
-                width: 100%;
-            }
+.toast-message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #333;
+    color: black;
+    padding: 12px 16px;
+    border-radius: 4px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    z-index: 1000;
+}
 
-            .input-container input {
-                margin-top: 10%;
-                width: 70vw;
-                height: var(--searchbarHeight);
-                padding: 0 50px 0 25px;
-                background-color: #f7dba7;
-                border: none;
-                border-radius: 30px;
-                box-sizing: border-box;
-                text-align: left;
-                font-size: 25px;
-            }
-
-            .input-container input::placeholder {
-                font-style: italic;
-                font-size: 1.8rem;
-                line-height: 50px;
-            }
-
-            .search-button {
-                margin-top: 10%;
-                font-size: 1.7rem;
-                height: var(--searchbarHeight);
-                width: var(--searchbarHeight);
-                position: absolute;
-                right: 0px;
-                background-color: #c89666;
-                border: none;
-                padding: 10px;
-                border-radius: 0px 30px 30px 0px;
-                color: white;
-                cursor: pointer;
-                font-weight: bold;
-            }
-
-            .search-button:hover {
-                background-color: #a67850;
-            }
-
-            .input-container input:focus {
-                outline: none;
-                border: 2px solid #c89666;
-            }
-        }
-    }
-
-    .tagContainer {
-        font-size: 1.8rem;
-        margin: 0 0 0 45px;
-        padding: 25px 0 0 0;
-        width: 95vw;
-    }
-
-    .addCard {
-        width: 25rem;
-        height: 10rem;
-        color: #c67c58;
-        font-size: 5rem;
-        border-radius: 45px;
-        border-color: #c67c58;
-        border-width: 0.3rem;
-        margin: 5rem 0 0 15rem;
-    }
+.toast-message.show {
+    visibility: visible;
+    opacity: 1;
 }
 
 /* Footer shit */
-#colapser {
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4%;
+    background-color: #1e2d2f;
+    text-align: center;
+    padding: 10px;
+}
 
-    footer {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 4%;
-        background-color: #1e2d2f;
-        text-align: center;
-        padding: 10px;
+.cafecitoLink {
+    background-color: inherit;
+    color: #f1ab86;
+    font-size: 1.8rem;
+}
+
+#cardContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+.card {
+    padding: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* Media query para 2 columnas */
+@media (max-width: 767px) {
+    #cardContainer {
+        grid-template-columns: repeat(2, 1fr);
     }
+}
 
-    .cafecitoLink {
-        background-color: inherit;
-        color: #f1ab86;
-        font-size: 1.8rem;
+/* Media query para 3 columnas */
+@media (min-width: 768px) and (max-width: 1023px) {
+    #cardContainer {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Media query para 4 columnas */
+@media (min-width: 1024px) {
+    #cardContainer {
+        grid-template-columns: repeat(4, 1fr);
     }
 }
