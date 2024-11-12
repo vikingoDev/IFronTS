@@ -1,5 +1,4 @@
 * {
-    /* background-color: #f1ab86; */
     color: #041f1e;
     font-family: 'lib1', 'lib2', sans-serif;
 }
@@ -14,28 +13,27 @@
 }
 
 /* Selectores grupales */
-:root {
-    --searchbarHeight: 60px;
+:root {    
+    --searchbarHeight: 60px;   
 }
 
 /* Estilo normal - Light mode */
 body {
     /* background-image: url(./resources/img/backgroundrandom.jfif); */
+    background-color: #c3cfa0 !important;    
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-color: #ffffff;
-    color: #000000;    
+    color: #000000;
 }
 
 main {
-    padding-bottom: 0.9em;
+    min-height: 80vh;
 }
 
 /* Dark mode */
 body.dark-mode {
-    background-color: #121212;
-    color: #ffffff;
+    background-color: #121212 !important;
 }
 
 /* Botones - Dark mode */
@@ -83,7 +81,7 @@ button.dark-mode {
 .searchContainer {
     display: flex;
     justify-content: center;
-    background-color: inherit;    
+    background-color: inherit;
 }
 
 .form {
@@ -149,38 +147,33 @@ button.dark-mode {
     width: 95vw;
 }
 
-/* Estilos de cards renderizadas */
-#addCard {
-    width: 15em;
-    min-height: 4em;
-    height: 100%;
-    color: #c67c58;
-    font-size: 1.75em;
-    border-radius: 45px;
-    border-color: #c67c58;
-    border-width: 0.1em;
-    flex-direction: column;
-    justify-content: space-between;
+.modal-header, .modal-body, .modal-footer {
+    background-color: #c3cfa0 !important;
 }
 
+/* Estilos de cards renderizadas */
 #cardContainer {
     display: flex;
     justify-content: center;
     background-color: inherit;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1em;    
-    max-width: 95%;    
-    margin: 0 auto;
+    grid-template-columns: repeat(3, 1fr);
     overflow: hidden;
     min-height: calc(100vh - 4%);
 }
 
-.card {
-    padding: 16px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+.addCard {
+    background-color: lightgray;
+}
+
+#modCard {
+    background-color: beige;
+    color: #c67c58;
+    border: 3px solid #c67c58;
+    border-radius: 33px;
     transition: transform 0.2s;
+    min-width: 7em;
+    max-width: 25em;
 }
 
 .card:hover {
@@ -209,8 +202,8 @@ button.dark-mode {
 /* Footer shit */
 footer {
     position: sticky;
-    bottom: 0;    
-    width: 100%;    
+    bottom: 0;
+    width: 100%;
     background-color: #1e2d2f;
     text-align: center;
     padding: 0.5em;
@@ -227,18 +220,12 @@ footer {
     #cardContainer {
         grid-template-columns: repeat(2, 1fr);
     }
+
 }
 
 /* Media query para 3 columnas */
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 768px) and (max-width: 1079px) {
     #cardContainer {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-/* Media query para 4 columnas */
-@media (min-width: 1024px) {
-    #cardContainer {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
 }

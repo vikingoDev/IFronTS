@@ -42,8 +42,8 @@ async function renderCard({ titulo, link, descripcion }) {
     const card = document.createElement("a");
     card.href = fullLink;
     card.target = "_blank";
-    card.className = "card mb-3";
-    card.id = "addCard";
+    card.className = "card m-4 addCard";
+    card.id = "modCard";
     const titleWithUrl = `${titulo} (${fullLink})`;
 
     card.innerHTML = `
