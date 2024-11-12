@@ -21,20 +21,20 @@
             <!-- The navbar itself -->
             <ul class="navbar-list">
                 <!-- Export -->
-                <button class="btn btn-primary" onclick="exportToCSV()">
+                <button class="btn btn-primary m-1 p-2" onclick="exportToCSV()">
                     <i class="fa-solid fa-cloud-arrow-down"></i> Exportar
                 </button>
                 <!-- Import -->
-                <button class="btn btn-primary" onclick="document.getElementById('importFile').click();">
+                <button class="btn btn-primary m-1 p-2" onclick="document.getElementById('importFile').click();">
                     <i class="fa-solid fa-cloud-arrow-up"></i> Importar
                 </button>
                 <input type="file" id="importFile" accept=".csv" onchange="importFromCSV(event)" style="display: none;">
                 <!-- Cleanup -->
-                <button onclick="clearLocalStorage()" class="btn btn-danger">
+                <button onclick="clearLocalStorage()" class="btn btn-danger m-1 p-2">
                     <i class="fa-solid fa-trash-can"></i>
                 </button>
                 <!-- Dark mode -->
-                <button id="darkModeButton" class="btn btn-secondary">
+                <button id="darkModeButton" class="btn btn-secondary m-1 p-2">
                     <i class="fa-solid fa-moon"></i> Dark Mode
                 </button>                
             </ul>

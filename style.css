@@ -220,12 +220,17 @@ footer {
     #cardContainer {
         grid-template-columns: repeat(2, 1fr);
     }
-
+    .navbar-list {
+        width: 80%;
+    }
 }
 
 /* Media query para 3 columnas */
 @media (min-width: 768px) and (max-width: 1079px) {
     #cardContainer {
         grid-template-columns: repeat(2, 1fr);
+    }
+    .navbar-list {
+        width: 80%;
     }
 }
