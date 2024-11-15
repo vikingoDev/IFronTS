@@ -42,20 +42,61 @@ async function renderCard({ titulo, link, descripcion }) {
     const card = document.createElement("a");
     card.href = fullLink;
     card.target = "_blank";
-    card.className = "card m-4 addCard";
-    card.id = "modCard";
-    const titleWithUrl = `${titulo} (${fullLink})`;
+    card.className = "card m-4";
+    card.id = "modCard";    
 
     card.innerHTML = `
         <!-- <img src="${thumbnail}" alt="Thumbnail" class="card-img-top"> -->
-        <div class="card-body">
-            <h5 class="card-title">${titleWithUrl}</h5>
-            <p class="card-text">${descripcion}</p>
-        </div>
+        <div class="card-body">            
+                <h4 class="cardTitle">${titulo}</h4>
+                <p class="cardUrl">(${fullLink})</p>
+                <p class="cardText">${descripcion}</p>
+                <p class="tagSec"></p>
+            <div class="cardActions">
+                <button class="btn btn-warning btn-sm botEdit"><i class="fa-solid fa-pen-to-square"></i></button><button class="btn btn-danger btn-sm botDel"><i class="fa-solid fa-trash-can"></i></button>
+            </div>
+        </div>        
     `;
     // Se deja el thumbnail en semi "display: none" porque es un quilombo generarlos, requiere web scrapping y no tengo ganas de lidiar con esto ahora 😅
     cardContainer.appendChild(card);
+
+    // Add event listeners for edit and delete buttons
+    card.querySelector(".botEdit").addEventListener("click", (e) => {
+        e.preventDefault();
+        editCard(titulo, descripcion, link, card);
+    });
+
+    card.querySelector(".botDel").addEventListener("click", (e) => {
+        e.preventDefault();
+        deleteCard(titulo, card);
+    });
 }
+
+// Editar cards y actualizar localStorage
+// PROXIMAMENTE
+
+// Borrar card y actualizar localStorage
+function deleteCard(titleToDelete, cardElement) {
+    cardElement.remove();
+    removeCardFromLocalStorage(titleToDelete);
+}
+
+// Actualizar card en localStorage
+function updateLocalStorageCard(oldTitle, updatedCard) {
+    const cards = JSON.parse(localStorage.getItem("cards")) || [];
+    const updatedCards = cards.map(card =>
+        card.titulo === oldTitle ? updatedCard : card
+    );
+    localStorage.setItem("cards", JSON.stringify(updatedCards));
+}
+
+// Remover card de localStorage
+function removeCardFromLocalStorage(titleToDelete) {
+    const cards = JSON.parse(localStorage.getItem("cards")) || [];
+    const updatedCards = cards.filter(card => card.titulo !== titleToDelete);
+    localStorage.setItem("cards", JSON.stringify(updatedCards));
+}
+
 
 // Renderizar cards guardadas al iniciar la página
 document.addEventListener("DOMContentLoaded", () => {

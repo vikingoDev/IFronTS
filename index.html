@@ -59,7 +59,7 @@
         <!-- Renderizado de cards -->
         <div id="cardContainer">
             <!-- Card adder -->
-            <button class="addCard m-4" id="modCard" data-bs-toggle="modal" data-bs-target="#newCardModal">+</button>
+            <button class="m-4" id="modCard" data-bs-toggle="modal" data-bs-target="#newCardModal">+</button>
         </div>
         <!-- Modal wrappers -->
         <div class="modal fade" id="newCardModal" data-bs-keyboard="false" tabindex="-1"
@@ -93,25 +93,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Modal para ingresar la ruta -->
-            <div class="modal fade" id="pathModal" tabindex="-1" aria-labelledby="pathModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="pathModalLabel">Guardar en...</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <input type="text" class="form-control" id="storagePathInput"
-                                placeholder="Ingrese URL o carpeta destino">
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" id="savePathBtn">Guardar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </main>
     <!-- Footer -->
