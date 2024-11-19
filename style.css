@@ -20,7 +20,7 @@
 /* Estilo normal - Light mode */
 body {
     /* background-image: url(./resources/img/backgroundrandom.jfif); */
-    background-color: #c3cfa0 !important;    
+    background-color: #505050 !important;    
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -52,8 +52,8 @@ button.dark-mode {
 
 .randomLogo {
     height: 100px;
-    width: 100px;
-    border-radius: 50%;
+    width: auto;
+    border-radius: 25px;
     margin: 10px 0px 0px 30px;
     object-fit: cover;
 }
@@ -74,6 +74,10 @@ button.dark-mode {
 #navbar-li-a´s {
     text-decoration: none;
     font-size: 2.2rem;
+}
+
+#darkModeButton {
+    background-color: #3e3e3e;
 }
 
 
@@ -101,7 +105,7 @@ button.dark-mode {
     width: 70vw;
     height: var(--searchbarHeight);
     padding: 0 50px 0 25px;
-    background-color: #f7dba7;
+    background-color: #3e3e3e;
     border: none;
     border-radius: 30px;
     box-sizing: border-box;
@@ -122,7 +126,7 @@ button.dark-mode {
     width: var(--searchbarHeight);
     position: absolute;
     right: 0px;
-    background-color: #c89666;
+    background-color: #2e56f6;
     border: none;
     padding: 10px;
     border-radius: 0px 30px 30px 0px;
@@ -132,7 +136,7 @@ button.dark-mode {
 }
 
 .search-button:hover {
-    background-color: #a67850;
+    background-color: #c89666;
 }
 
 .input-container input:focus {
@@ -148,7 +152,7 @@ button.dark-mode {
 }
 
 .modal-header, .modal-body, .modal-footer {
-    background-color: #c3cfa0 !important;
+    background-color: #a1a1a1 !important;
 }
 
 /* Estilos de cards renderizadas */
@@ -163,9 +167,8 @@ button.dark-mode {
 }
 
 #modCard {
-    background-color: beige;
-    color: #c67c58;
-    border: 3px solid #c67c58;
+    background-color: #a1a1a1;
+    border: 3px solid #c89666;
     border-radius: 33px;
     transition: transform 0.2s;
     min-height: 7em;
@@ -178,6 +181,9 @@ button.dark-mode {
 
 .cardTitle, .cardText {
     width: 85%;    
+}
+.cardTitle {
+    color: #3e3e3e;
 }
 
 .card-body {
@@ -243,8 +249,13 @@ footer {
         grid-template-columns: repeat(2, 1fr);
     }
     .navbar-list {
-        width: 80%;
+        width: 60%;
+        margin: 10px 15px 0 0;
     }
+    .randomLogo {
+        height: 60px;
+    }
+
 }
 
 /* Media query para 3 columnas */
@@ -253,10 +264,14 @@ footer {
         grid-template-columns: repeat(2, 1fr);
     }
     .navbar-list {
-        width: 80%;
+        width: 60%;
+        margin: 10px 15px 0 0;
     }
     .cardTitle, .cardText {
         width: 80%;    
+    }
+    .randomLogo {
+        height: 60px;
     }
 }
 
@@ -266,6 +281,10 @@ footer {
         grid-template-columns: repeat(3, 1fr);
     }
     .navbar-list {
-        width: 80%;
+        width: 60%;
+        margin: 8px 15px 0 0;
     }    
+    .randomLogo {
+        height: 75px;
+    }
 }
